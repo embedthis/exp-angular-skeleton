@@ -1,0 +1,11 @@
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="#"><i class="glyphicon glyphicon-tower"></i> @=meta.title</sup></a>
+                <ul class="nav navbar-nav">
+                    <li><a class="item <@= active('home') @>" href="/">Home</a></li>
+                    <li><a class="item <@= active('file') @>" href="/file.html">File</a></li>
+                </ul>
+            </div>
+        </div>
+

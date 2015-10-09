@@ -1,0 +1,43 @@
+{
+    "name": "exp-angular-skeleton",
+    "description": "Semantic Skeleton for Expansive",
+    "version": "0.2.0",
+    "keywords": [
+        "expansive-plugin",
+        "angular"
+    ],
+    "licenses": "GPL",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/embedthis/exp-angular-skeleton.git"
+    },
+    "dependencies": {
+        "angular": "~1.3",
+        "angular-route": "~1.3",
+        "exp-js": "~0.3",
+        "exp-less": "~0.3",
+        "exp-css": "~0.3"
+    },
+    "devDependencies": {
+        "expansive": ">=0.6.0",
+        "pak": ">=0.11.3"
+    },
+    "pak": {
+        "blend": {
+            "pak": {
+                "?mode": "debug",
+                "?import": true
+            }
+        },
+        "export": {
+            "from": [
+                "contents/**",
+                "layouts/**",
+                "partials/**"
+            ],
+            "to": "${TOP}",
+            "overwrite": false
+        },
+        "manage": "expansive.json"
+    }
+}

@@ -1,0 +1,13 @@
+/*
+    expansive.json - Configuration for exp-angular-skeleton
+ */
+{
+    release: {
+        services: {
+            'css': {
+                '?usemap': false,
+                '?minify': true
+            }
+        }
+    }
+}
