@@ -12,8 +12,9 @@
         "url": "git://github.com/embedthis/exp-angular-skeleton.git"
     },
     "dependencies": {
-        "angular": "~1.3",
-        "angular-route": "~1.3",
+        "angular": "~1.4",
+        "angular-route": "~1.4",
+        "exp-html": "~0.2",
         "exp-js": "~0.3",
         "exp-less": "~0.3",
         "exp-css": "~0.3"
@@ -24,6 +25,12 @@
     },
     "pak": {
         "blend": {
+            "devDependencies": {
+                "?esp": "~6.x"
+            },
+            "directories": {
+                "?export": "contents/lib"
+            },
             "pak": {
                 "?mode": "debug",
                 "?import": true
