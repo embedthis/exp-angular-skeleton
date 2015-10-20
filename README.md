@@ -9,7 +9,8 @@ This provides:
  * Configuration for Expansive plugins:
     * [exp-css](https://github.com/embedthis/exp-css) for CSS files
     * [exp-less](https://github.com/embedthis/exp-less) for Less files
-    * [exp-j](https://github.com/embedthis/exp-js) for script files
+    * [exp-js](https://github.com/embedthis/exp-js) for script files
+    * [exp-html](https://github.com/embedthis/exp-html) for HTML minification
  * Default layout 
  * Default partials 
  * Starter home page
@@ -20,46 +21,43 @@ This provides:
 
 ### Description
 
-The Angular skeleton is a starter skeleton for Expansive using 
-[Angular](http://getangular.com). It provides a default layout,
-partial pages and is configured to use Less stylesheets. Extensions are installed
-to process less stylesheets and minify scripts.
+The Angular skeleton is a starter skeleton for Expansive using [Angular](http://angularjs.org). It provides a default layout, partial pages and is configured to use Less stylesheets. Extensions are installed to process less stylesheets and minify scripts.
 
-The skeleton is configured for a "debug" and "release" mode of operation via the
-"mode" property in package.json. By default, debug mode will disable minification and
-mangling of scripts.
+The skeleton is configured for a "debug" and "release" mode of operation via the "pak.mode" property in package.json. By default, debug mode will disable minification and optimization of scripts.
 
 ### Configure
 
 #### expansive.json
 
-* less.enable &mdash; Enable the less service to process less files.
-* less.stylesheet &mdash; Primary stylesheet to update if any less file changes.
-    If specified, the "dependencies" map will be automatically created. 
 * less.dependencies &mdash; Explicit map of dependencies if not using "stylesheet". 
-* less.documents &mdash; Array of less files to compile.
+* less.enable &mdash; Enable the less service to process less files.
+* less.files &mdash; Array of less files to compile.
+* less.stylesheets &mdash; Primary stylesheet to update if any less file changes.
+    If specified, the "dependencies" map will be automatically created. 
 * css.prefix &mdash; Enable running autoprefixer on CSS files to handle browser specific extensions.
 * css.minify &mdash; Enable minifying CSS files.
+* js.compress &mdash; Enable compression of script files.
+* js.dotmin &mdash; Set '.min.js' as the output file extension after minification. Otherwise will be '.js'.
 * js.enable &mdash; Enable minifying script files.
 * js.files &mdash; Array of files to minify. Files are relative to 'source'.
-* js.compress &mdash; Enable compression of script files.
-* js.mangle &mdash; Enable mangling of Javascript variable and function names.
-* js.dotmin &mdash; Set '.min.js' as the output file extension after minification. Otherwise will be '.js'.
+* js.mangle &mdash; Enable optimization by mangling of Javascript variable and function names.
+* js.minify &mdash; Enable minification of Javascript variable and function names.
+* js.usemin &mdash; Enable pre-minified scripts if available.
 
 ```
 {
     services: {
         'less': {
             enable: true,
-            stylesheet: 'css/all.css',
+            stylesheets:  [ 'css/all.css' ],
             dependencies: { 'css/all.css.less' : '**.less' },
-            documents: [ '!**.less', '**.css.less' ]
+            files: [ '!**.less', '**.css.less' ]
         },
         'css': {
             prefix: true,
             minify: true,
         },
-        'minify-js': {
+        'js': {
             enable:     true,
             files:      null,
             compress:   true,
